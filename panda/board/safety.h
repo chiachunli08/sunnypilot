@@ -14,6 +14,7 @@
 #include "safety/safety_nissan.h"
 #include "safety/safety_volkswagen.h"
 #include "safety/safety_elm327.h"
+#include "safety/safety_volvo.h"
 
 // from cereal.car.CarParams.SafetyModel
 #define SAFETY_SILENT 0U
@@ -39,8 +40,8 @@
 #define SAFETY_HYUNDAI_LEGACY 23U
 #define SAFETY_HYUNDAI_COMMUNITY 24U
 #define SAFETY_STELLANTIS 25U
-#define SAFETY_SUBARU_GEN2 26U
-#define SAFETY_SUBARU_HYBRID 27U
+#define SAFETY_VOLVO_C1 26U
+#define SAFETY_VOLVO_EUCD 27U
 
 uint16_t current_safety_mode = SAFETY_SILENT;
 int16_t current_safety_param = 0;
@@ -271,6 +272,8 @@ const safety_hook_config safety_hook_registry[] = {
   {SAFETY_VOLKSWAGEN_PQ, &volkswagen_pq_hooks},
   {SAFETY_ALLOUTPUT, &alloutput_hooks},
   {SAFETY_FORD, &ford_hooks},
+  {SAFETY_VOLVO_C1, &volvo_c1_hooks},
+  {SAFETY_VOLVO_EUCD, &volvo_eucd_hooks},
 #endif
 };
 
